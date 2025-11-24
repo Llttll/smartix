@@ -1,0 +1,587 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Smartix - Mechatronics Student Club</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;700;900&family=Tajawal:wght@400;700&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            smartix: {
+              blue: '#54B0FF',
+              yellow: '#F9BC52',
+              lightBlue: '#8AA4FF',
+              navy: '#00001B',
+            }
+          },
+          fontFamily: {
+            sans: ['Outfit', 'Tajawal', 'sans-serif'],
+          }
+        }
+      }
+    }
+  </script>
+  <script type="importmap">
+{
+  "imports": {
+    "lucide-react": "https://aistudiocdn.com/lucide-react@^0.554.0",
+    "react/": "https://aistudiocdn.com/react@^19.2.0/",
+    "react": "https://aistudiocdn.com/react@^19.2.0"
+  }
+}
+</script>
+  <link rel="stylesheet" href="/index.css">
+</head>
+
+<body class="min-h-screen bg-white font-sans text-smartix-navy selection:bg-smartix-blue selection:text-white">
+
+  <!-- Navbar -->
+  <nav id="navbar" class="fixed w-full z-50 transition-all duration-300 bg-transparent py-5 text-white">
+    <div class="container mx-auto px-6 flex justify-between items-center">
+      <a href="#" class="flex items-center space-x-3 cursor-pointer group">
+        <!-- Logo SVG (Dynamic Color via CSS classes handled in JS) -->
+        <img src="lglog-0١.png" alt="" class="logo_nav">
+        <span id="nav-text" class="text-2xl font-bold tracking-tight transition-colors duration-300">Smartix</span>
+      </a>
+
+      <!-- Desktop Nav -->
+      <div class="hidden md:flex items-center space-x-8">
+        <a href="#identity"
+          class="nav-link font-medium transition-colors hover:text-smartix-yellow opacity-90">About</a>
+        <a href="#about"
+          class="nav-link font-medium transition-colors hover:text-smartix-yellow opacity-90">Identity</a>
+        <a href="#activities"
+          class="nav-link font-medium transition-colors hover:text-smartix-yellow opacity-90">Activities</a>
+        <a href="#team" class="nav-link font-medium transition-colors hover:text-smartix-yellow opacity-90">Team</a>
+        <a href="#contact"
+          class="nav-link font-medium transition-colors hover:text-smartix-yellow opacity-90">Contact</a>
+        <button id="nav-cta"
+          onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdlPr_B32hjUonbJ0-qkj4Y7rfKuxroWnYhK6vMHXBclmeaAQ/viewform?usp=header', '_blank');"
+          class="px-6 py-2 rounded-full font-bold transition-all duration-300 transform hover:-translate-y-1 shadow-lg bg-white text-smartix-blue hover:bg-gray-100">
+          Join Club
+        </button>
+      </div>
+
+      <!-- Mobile Nav Toggle -->
+      <button id="mobile-menu-btn" class="md:hidden focus:outline-none">
+        <i data-lucide="menu" class="w-6 h-6"></i>
+      </button>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu"
+      class="hidden md:hidden absolute top-full left-0 w-full bg-white border-t border-gray-100 shadow-lg py-4 px-6 flex-col space-y-4 text-smartix-navy">
+      <a href="#about" class="font-medium text-lg py-2 border-b border-gray-50 mobile-link">About</a>
+      <a href="#identity" class="font-medium text-lg py-2 border-b border-gray-50 mobile-link">Identity</a>
+      <a href="#activities" class="font-medium text-lg py-2 border-b border-gray-50 mobile-link">Activities</a>
+      <a href="#team" class="font-medium text-lg py-2 border-b border-gray-50 mobile-link">Team</a>
+      <a href="#contact" class="font-medium text-lg py-2 border-b border-gray-50 mobile-link">Contact</a>
+      <button class="w-full px-6 py-3 rounded-full font-bold bg-smartix-blue text-white hover:bg-blue-400 mt-4">Join
+        Club</button>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="relative min-h-screen flex items-center pt-20 pb-32 overflow-hidden bg-smartix-navy text-white">
+    <!-- Abstract Tech Background -->
+    <div class="absolute inset-0 overflow-hidden">
+      <div
+        class="absolute top-[-10%] right-[-5%] w-[600px] h-[600px] bg-smartix-blue opacity-10 rounded-full blur-[100px] animate-blob">
+      </div>
+      <div
+        class="absolute bottom-[-10%] left-[-10%] w-[500px] h-[500px] bg-smartix-yellow opacity-5 rounded-full blur-[100px] animate-blob animation-delay-2000">
+      </div>
+      <!-- Grid Overlay -->
+      <div class="absolute inset-0 opacity-[0.05]"
+        style="background-image: linear-gradient(white 1px, transparent 1px), linear-gradient(90deg, white 1px, transparent 1px); background-size: 50px 50px;">
+      </div>
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="flex flex-col items-center text-center max-w-4xl mx-auto">
+        <div class="animate-fade-in-up">
+          <!-- Hero Logo -->
+          <img src="lglog-0١.png" alt="" class="hero_logo animate-float">
+        </div>
+
+        <div
+          class="inline-flex items-center space-x-2 bg-white/10 backdrop-blur-md border border-white/20 rounded-full px-4 py-1.5 mb-6 animate-fade-in-up"
+          style="animation-delay: 0.1s;">
+          <span class="w-2 h-2 rounded-full bg-smartix-yellow animate-pulse"></span>
+          <span class="text-sm font-medium text-white/90">Mechatronics Engineering Student Club</span>
+        </div>
+
+        <h1 class="text-5xl md:text-7xl font-semibold leading-tight mb-6 tracking-tight animate-fade-in-up"
+          style="animation-delay: 0.2s;">
+          Creating <span class="text-smartix-blue inline-block relative">
+            Smart
+            <svg class="absolute w-full h-3 -bottom-1 left-0 text-smartix-yellow opacity-80" viewBox="0 0 100 10"
+              preserveAspectRatio="none">
+              <path d="M0 5 Q 50 10 100 5" stroke="currentColor" stroke-width="4" fill="none" />
+            </svg>
+          </span> Solutions <br /> with Friends.
+        </h1>
+
+        <p class="text-xl text-gray-300 mb-10 max-w-2xl leading-relaxed animate-fade-in-up"
+          style="animation-delay: 0.3s;">
+          We are a student club from the Mechatronics department, formed by friends from different stages to innovate in
+          engineering.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 w-full justify-center animate-fade-in-up"
+          style="animation-delay: 0.4s;">
+          <button
+            class="px-8 py-4 rounded-full font-bold transition-all duration-300 transform hover:-translate-y-1 shadow-lg bg-smartix-blue text-white hover:bg-blue-400 flex items-center justify-center text-lg"
+            onclick="window.open('https://docs.google.com/forms/d/e/1FAIpQLSdlPr_B32hjUonbJ0-qkj4Y7rfKuxroWnYhK6vMHXBclmeaAQ/viewform?usp=header', '_blank');">
+            Join the Community <i data-lucide="arrow-right" class="ml-2 w-5 h-5"></i>
+          </button>
+          <button onclick="document.getElementById('identity').scrollIntoView({ behavior: 'smooth' });"
+            class="px-8 py-4 rounded-full font-bold transition-all duration-300 transform hover:-translate-y-1 shadow-lg border-2 border-white text-white hover:bg-white hover:text-smartix-navy text-lg">
+            Learn More
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 animate-bounce text-white/50">
+      <i data-lucide="arrow-right" class="rotate-90 w-6 h-6"></i>
+    </div>
+  </section>
+
+  <!-- Identity Section -->
+  <section id="identity" class="py-24 relative bg-[#F8FAFC]">
+    <!-- Grid Background -->
+    <div class="absolute inset-0 opacity-40 pointer-events-none"
+      style="background-image: linear-gradient(#E2E8F0 1px, transparent 1px), linear-gradient(90deg, #E2E8F0 1px, transparent 1px); background-size: 30px 30px;">
+    </div>
+
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="text-center mb-16">
+        <h2 class="text-smartix-blue font-bold text-xl mb-2">@smartix.mtu</h2>
+        <h3 class="text-4xl md:text-5xl font-bold text-smartix-navy">Discover Smartix</h3>
+      </div>
+
+      <div class="grid lg:grid-cols-3 gap-8 reveal">
+
+        <!-- Card 1 -->
+        <div
+          class="bg-white p-8 rounded-[2rem] shadow-xl shadow-smartix-blue/5 border border-gray-100 relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
+          <div
+            class="absolute -right-10 -top-10 w-32 h-32 bg-smartix-blue/10 rounded-full group-hover:scale-150 transition-transform duration-500">
+          </div>
+          <div
+            class="w-14 h-14 bg-smartix-blue text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-smartix-blue/30">
+            <i data-lucide="users" class="w-7 h-7"></i>
+          </div>
+          <h4 class="text-2xl font-bold mb-4">Who are we?</h4>
+          <p class="text-gray-600 leading-relaxed">
+            A student club from the <span class="font-semibold text-smartix-blue">Mechatronics Engineering</span>
+            department at the Technical University. We are a team consisting of friends from different academic stages,
+            united by passion.
+          </p>
+        </div>
+
+        <!-- Card 2 -->
+        <div
+          class="bg-white p-8 rounded-[2rem] shadow-xl shadow-smartix-blue/5 border border-gray-100 relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
+          <div
+            class="absolute -right-10 -top-10 w-32 h-32 bg-smartix-yellow/20 rounded-full group-hover:scale-150 transition-transform duration-500">
+          </div>
+          <div
+            class="w-14 h-14 bg-smartix-yellow text-smartix-navy rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-smartix-yellow/30">
+            <i data-lucide="help-circle" class="w-7 h-7"></i>
+          </div>
+          <h4 class="text-2xl font-bold mb-4">Why Smartix?</h4>
+          <p class="text-gray-600 leading-relaxed">
+            Inspired by <span class="font-semibold text-smartix-navy">smart systems</span> in engineering. We exist to
+            bridge the gap between theoretical study and practical application through fun, hands-on collaboration.
+          </p>
+        </div>
+
+        <!-- Card 3 -->
+        <div
+          class="bg-white p-8 rounded-[2rem] shadow-xl shadow-smartix-blue/5 border border-gray-100 relative overflow-hidden group hover:-translate-y-2 transition-transform duration-300">
+          <div
+            class="absolute -right-10 -top-10 w-32 h-32 bg-smartix-navy/5 rounded-full group-hover:scale-150 transition-transform duration-500">
+          </div>
+          <div
+            class="w-14 h-14 bg-smartix-navy text-white rounded-2xl flex items-center justify-center mb-6 shadow-lg shadow-smartix-navy/30">
+            <i data-lucide="target" class="w-7 h-7"></i>
+          </div>
+          <h4 class="text-2xl font-bold mb-4">Our Goals</h4>
+          <p class="text-gray-600 leading-relaxed">
+            To build a community that innovates in <span class="font-semibold text-smartix-blue">Arduino &
+              Electronics</span>, supports each other academically, and prepares members for the future of tech.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Tech Showcase / About -->
+  <section id="about" class="py-20 bg-white overflow-hidden">
+    <div class="container mx-auto px-6">
+      <div class="flex flex-col lg:flex-row items-center gap-16 reveal">
+        <div class="lg:w-1/2 relative">
+          <div
+            class="absolute inset-0 bg-smartix-blue/20 rounded-full blur-3xl transform -translate-x-10 translate-y-10">
+          </div>
+          <div class="bg-smartix-navy rounded-3xl p-8 relative rotate-3 shadow-2xl border-4 border-white">
+            <div
+              class="absolute -top-6 -left-6 bg-smartix-yellow text-smartix-navy p-4 rounded-xl font-bold shadow-lg transform -rotate-6 flex items-center gap-2">
+              <img src="lglog-0١.png" alt="Smartix Logo" class="w-4 h-4 object-contain brightness-0 invert">
+              <span>Arduino Lovers</span>
+            </div>
+            <img src="photo_2025-11-20_18-22-34.jpg" alt="Electronics Project"
+              class="rounded-2xl w-full object-cover h-80 opacity-90" />
+            <div class="mt-6 flex justify-between items-center text-white">
+              <div>
+                <div class="text-sm text-gray-400">Project Type</div>
+                <div class="font-bold text-xl">Smart Robot Car</div>
+              </div>
+              <!-- Logo Small White -->
+              <!-- Logo Small White -->
+              <img src="lglog-0١.png" alt="Smartix Logo" class="w-12 h-12 object-contain brightness-0 invert">
+            </div>
+          </div>
+        </div>
+
+        <div class="lg:w-1/2">
+          <h2 class="text-4xl font-bold mb-6 text-smartix-navy">
+            From Theory to <span class="text-smartix-blue">Reality</span>
+          </h2>
+          <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+            Smartix isn't just about lectures. It's about getting your hands dirty with wires, sensors, and code. We
+            transform complex Mechatronics concepts into working prototypes.
+          </p>
+
+          <div class="space-y-6">
+            <div class="flex items-start">
+              <div
+                class="w-10 h-10 rounded-full bg-smartix-blue/10 flex items-center justify-center mt-1 mr-4 text-smartix-blue">
+                <i data-lucide="sparkles" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg text-smartix-navy">Workshops</h4>
+                <p class="text-gray-500">Interactive sessions on Arduino and Circuit Design.</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div
+                class="w-10 h-10 rounded-full bg-smartix-blue/10 flex items-center justify-center mt-1 mr-4 text-smartix-blue">
+                <i data-lucide="sparkles" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg text-smartix-navy">Mentorship</h4>
+                <p class="text-gray-500">Seniors guiding juniors through their engineering journey.</p>
+              </div>
+            </div>
+            <div class="flex items-start">
+              <div
+                class="w-10 h-10 rounded-full bg-smartix-blue/10 flex items-center justify-center mt-1 mr-4 text-smartix-blue">
+                <i data-lucide="sparkles" class="w-5 h-5"></i>
+              </div>
+              <div>
+                <h4 class="font-bold text-lg text-smartix-navy">Competitions</h4>
+                <p class="text-gray-500">Internal and external hackathons to test your skills.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Activities Section -->
+  <section id="activities" class="py-24 bg-smartix-navy relative text-white">
+    <!-- Background Elements -->
+    <div class="absolute top-0 right-0 w-96 h-96 bg-smartix-blue opacity-10 rounded-full blur-[100px]"></div>
+
+    <div class="container mx-auto px-6 relative z-10">
+      <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+        <div>
+          <span class="text-smartix-yellow font-bold tracking-wider uppercase text-sm">What we do</span>
+          <h2 class="text-4xl font-bold mt-2">Upcoming Activities</h2>
+        </div>
+        <button
+          class="hidden md:block px-6 py-3 rounded-full font-bold bg-white text-smartix-navy hover:bg-gray-100 transition-colors">
+          View Calendar
+        </button>
+      </div>
+
+      <div class="grid md:grid-cols-3 gap-6 reveal">
+        <!-- Event 1 -->
+        <div
+          class="group relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300">
+          <div class="p-8 h-full flex flex-col">
+            <div class="flex justify-between items-start mb-8">
+              <span class="px-3 py-1 rounded-full text-xs font-bold text-white bg-red-500">
+                Competition
+              </span>
+              <span class="flex items-center text-gray-400 text-sm">
+                <i data-lucide="calendar" class="w-4 h-4 mr-1"></i> soon...
+              </span>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 group-hover:text-smartix-blue transition-colors">Line Follower Robot</h3>
+            <p class="text-gray-400 mb-8 flex-grow">Join us to learn the fundamentals and build your first project.</p>
+            <div
+              class="flex items-center text-smartix-blue font-bold group-hover:translate-x-2 transition-transform cursor-pointer">
+              Register <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 2 -->
+        <div
+          class="group relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300">
+          <div class="p-8 h-full flex flex-col">
+            <div class="flex justify-between items-start mb-8">
+              <span class="px-3 py-1 rounded-full text-xs font-bold text-white bg-smartix-blue">
+                Workshop
+              </span>
+              <span class="flex items-center text-gray-400 text-sm">
+                <i data-lucide="calendar" class="w-4 h-4 mr-1"></i> soon...
+              </span>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 group-hover:text-smartix-blue transition-colors">Introduction to PCB</h3>
+            <p class="text-gray-400 mb-8 flex-grow">Join us to learn the fundamentals and build your first project.</p>
+            <div
+              class="flex items-center text-smartix-blue font-bold group-hover:translate-x-2 transition-transform cursor-pointer">
+              Register <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+            </div>
+          </div>
+        </div>
+
+        <!-- Event 3 -->
+        <div
+          class="group relative overflow-hidden rounded-3xl bg-white/5 border border-white/10 hover:bg-white/10 transition-all duration-300">
+          <div class="p-8 h-full flex flex-col">
+            <div class="flex justify-between items-start mb-8">
+              <span class="px-3 py-1 rounded-full text-xs font-bold text-smartix-navy bg-smartix-yellow">
+                Seminar
+              </span>
+              <span class="flex items-center text-gray-400 text-sm">
+                <i data-lucide="calendar" class="w-4 h-4 mr-1"></i> soon...
+              </span>
+            </div>
+            <h3 class="text-2xl font-bold mb-4 group-hover:text-smartix-blue transition-colors">Smart Home IoT</h3>
+            <p class="text-gray-400 mb-8 flex-grow">Join us to learn the fundamentals and build your first project.</p>
+            <div
+              class="flex items-center text-smartix-blue font-bold group-hover:translate-x-2 transition-transform cursor-pointer">
+              Register <i data-lucide="arrow-right" class="ml-2 w-4 h-4"></i>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="mt-8 md:hidden w-full">
+        <button
+          class="w-full px-6 py-3 rounded-full font-bold bg-white text-smartix-navy hover:bg-gray-100 transition-colors">View
+          Calendar</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- Team Section -->
+  <section id="team" class="py-24 bg-[#F8FAFC]">
+    <div class="container mx-auto px-6">
+      <div class="text-center mb-16">
+        <h2 class="text-smartix-blue font-bold text-xl mb-2">Our Squad</h2>
+        <h3 class="text-4xl md:text-5xl font-bold text-smartix-navy">Meet the Team</h3>
+        <p class="text-gray-600 mt-4 max-w-2xl mx-auto">
+          The passionate students from the Mechatronics department driving innovation and community at Smartix.
+        </p>
+      </div>
+
+      <div class="flex flex-wrap justify-center gap-8 reveal">
+        <!-- Team Member 1 -->
+        <div
+          class="group bg-white rounded-[2rem] p-6 shadow-lg shadow-smartix-blue/5 border border-gray-100 text-center hover:-translate-y-2 transition-all duration-300 w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]">
+          <div class="w-32 h-32 mx-auto mb-6 relative">
+            <div
+              class="absolute inset-0 rounded-full bg-smartix-yellow/20 transform rotate-6 group-hover:rotate-12 transition-transform">
+            </div>
+            <img src="user.png" alt="Mohammed Ali"
+              class="w-full h-full object-cover rounded-full relative z-10 border-4 border-white shadow-sm">
+            <div
+              class="absolute bottom-0 right-0 z-20 bg-smartix-blue text-white p-1.5 rounded-full border-2 border-white flex items-center justify-center">
+              <img src="lglog-0١.png" alt="Smartix Logo" class="w-4 h-4 object-contain brightness-0 invert">
+            </div>
+          </div>
+          <h4 class="text-xl font-bold text-smartix-navy mb-1">Abbas Fayeq</h4>
+          <p class="text-smartix-blue font-medium text-sm">Club President</p>
+          <div class="flex justify-center gap-3 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <a href="#" class="text-gray-400 hover:text-smartix-blue"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+            <a href="#" class="text-gray-400 hover:text-smartix-navy"><i data-lucide="github" class="w-4 h-4"></i></a>
+          </div>
+        </div>
+
+        <!-- Team Member 2 -->
+        <div
+          class="group bg-white rounded-[2rem] p-6 shadow-lg shadow-smartix-blue/5 border border-gray-100 text-center hover:-translate-y-2 transition-all duration-300 w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]">
+          <div class="w-32 h-32 mx-auto mb-6 relative">
+            <div
+              class="absolute inset-0 rounded-full bg-smartix-yellow/20 transform rotate-6 group-hover:rotate-12 transition-transform">
+            </div>
+            <img src="user.png" alt="Sarah Johnson"
+              class="w-full h-full object-cover rounded-full relative z-10 border-4 border-white shadow-sm">
+            <div
+              class="absolute bottom-0 right-0 z-20 bg-smartix-blue text-white p-1.5 rounded-full border-2 border-white flex items-center justify-center">
+              <img src="lglog-0١.png" alt="Smartix Logo" class="w-4 h-4 object-contain brightness-0 invert">
+            </div>
+          </div>
+          <h4 class="text-xl font-bold text-smartix-navy mb-1">Sarah</h4>
+          <p class="text-smartix-blue font-medium text-sm">Photographer</p>
+          <div class="flex justify-center gap-3 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <a href="#" class="text-gray-400 hover:text-smartix-blue"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+            <a href="#" class="text-gray-400 hover:text-smartix-navy"><i data-lucide="github" class="w-4 h-4"></i></a>
+          </div>
+        </div>
+
+        <!-- Team Member 3 -->
+        <div
+          class="group bg-white rounded-[2rem] p-6 shadow-lg shadow-smartix-blue/5 border border-gray-100 text-center hover:-translate-y-2 transition-all duration-300 w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]">
+          <div class="w-32 h-32 mx-auto mb-6 relative">
+            <div
+              class="absolute inset-0 rounded-full bg-smartix-yellow/20 transform rotate-6 group-hover:rotate-12 transition-transform">
+            </div>
+            <img src="user.png" alt="Youssef Hassan"
+              class="w-full h-full object-cover rounded-full relative z-10 border-4 border-white shadow-sm">
+            <div
+              class="absolute bottom-0 right-0 z-20 bg-smartix-blue text-white p-1.5 rounded-full border-2 border-white flex items-center justify-center">
+              <img src="lglog-0١.png" alt="Smartix Logo" class="w-4 h-4 object-contain brightness-0 invert">
+            </div>
+          </div>
+          <h4 class="text-xl font-bold text-smartix-navy mb-1">abd alrzak</h4>
+          <p class="text-smartix-blue font-medium text-sm">i dont know</p>
+          <div class="flex justify-center gap-3 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <a href="#" class="text-gray-400 hover:text-smartix-blue"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+            <a href="#" class="text-gray-400 hover:text-smartix-navy"><i data-lucide="github" class="w-4 h-4"></i></a>
+          </div>
+        </div>
+
+        <!-- Team Member 4 -->
+        <div
+          class="group bg-white rounded-[2rem] p-6 shadow-lg shadow-smartix-blue/5 border border-gray-100 text-center hover:-translate-y-2 transition-all duration-300 w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]">
+          <div class="w-32 h-32 mx-auto mb-6 relative">
+            <div
+              class="absolute inset-0 rounded-full bg-smartix-yellow/20 transform rotate-6 group-hover:rotate-12 transition-transform">
+            </div>
+            <img src="user.png" alt="Noor Ahmed"
+              class="w-full h-full object-cover rounded-full relative z-10 border-4 border-white shadow-sm">
+            <div
+              class="absolute bottom-0 right-0 z-20 bg-smartix-blue text-white p-1.5 rounded-full border-2 border-white flex items-center justify-center">
+              <img src="lglog-0١.png" alt="Smartix Logo" class="w-4 h-4 object-contain brightness-0 invert">
+            </div>
+          </div>
+          <h4 class="text-xl font-bold text-smartix-navy mb-1">Hadeer</h4>
+          <p class="text-smartix-blue font-medium text-sm">Voice Over</p>
+          <div class="flex justify-center gap-3 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <a href="#" class="text-gray-400 hover:text-smartix-blue"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+            <a href="#" class="text-gray-400 hover:text-smartix-navy"><i data-lucide="github" class="w-4 h-4"></i></a>
+          </div>
+        </div>
+
+        <!-- Team Member 5 -->
+        <div
+          class="group bg-white rounded-[2rem] p-6 shadow-lg shadow-smartix-blue/5 border border-gray-100 text-center hover:-translate-y-2 transition-all duration-300 w-full md:w-[calc(50%-1rem)] lg:w-[calc(25%-1.5rem)]">
+          <div class="w-32 h-32 mx-auto mb-6 relative">
+            <div
+              class="absolute inset-0 rounded-full bg-smartix-yellow/20 transform rotate-6 group-hover:rotate-12 transition-transform">
+            </div>
+            <img src="user.png" alt="New Member"
+              class="w-full h-full object-cover rounded-full relative z-10 border-4 border-white shadow-sm">
+            <div
+              class="absolute bottom-0 right-0 z-20 bg-smartix-blue text-white p-1.5 rounded-full border-2 border-white flex items-center justify-center">
+              <img src="lglog-0١.png" alt="Smartix Logo" class="w-4 h-4 object-contain brightness-0 invert">
+            </div>
+          </div>
+          <h4 class="text-xl font-bold text-smartix-navy mb-1">hajer</h4>
+          <p class="text-smartix-blue font-medium text-sm">no use</p>
+          <div class="flex justify-center gap-3 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            <a href="#" class="text-gray-400 hover:text-smartix-blue"><i data-lucide="linkedin" class="w-4 h-4"></i></a>
+            <a href="#" class="text-gray-400 hover:text-smartix-navy"><i data-lucide="github" class="w-4 h-4"></i></a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer id="contact" class="bg-white pt-20 pb-10 border-t border-gray-100">
+    <div class="container mx-auto px-6">
+      <div class="grid md:grid-cols-4 gap-12 mb-16">
+        <div class="col-span-1 md:col-span-2">
+          <div class="flex items-center space-x-3 mb-6">
+            <!-- Logo Blue -->
+            <img src="lglog-0١.png" alt="Smartix Logo" class="w-12 h-auto">
+            <span class="text-3xl font-bold text-smartix-navy">Smartix</span>
+          </div>
+          <p class="text-gray-500 max-w-md leading-relaxed mb-6">
+            The official student club for Mechatronics Engineering. We are building a community of innovators, creators,
+            and friends.
+          </p>
+          <div class="flex space-x-4">
+            <a href="https://www.instagram.com/smartix.mtu?igsh=MTZ3cGJ2OXB1bGIzMw=="
+              class="w-10 h-10 rounded-full bg-smartix-blue/10 flex items-center justify-center text-smartix-blue hover:bg-smartix-blue hover:text-white transition-colors">
+              <i data-lucide="instagram" class="w-5 h-5"></i>
+            </a>
+            <a href="mailto:smartx.mtu@gmail.com"
+              class="w-10 h-10 rounded-full bg-smartix-blue/10 flex items-center justify-center text-smartix-blue hover:bg-smartix-blue hover:text-white transition-colors">
+              <i data-lucide="mail" class="w-5 h-5"></i>
+            </a>
+          </div>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-smartix-navy text-lg mb-6">Navigation</h4>
+          <ul class="space-y-3 text-gray-500">
+            <li><a href="#" class="hover:text-smartix-blue">Home</a></li>
+            <li><a href="#about" class="hover:text-smartix-blue">About Us</a></li>
+            <li><a href="#activities" class="hover:text-smartix-blue">Activities</a></li>
+            <li><a href="#team" class="hover:text-smartix-blue">Team</a></li>
+            <li><a
+                href="https://docs.google.com/forms/d/e/1FAIpQLSdlPr_B32hjUonbJ0-qkj4Y7rfKuxroWnYhK6vMHXBclmeaAQ/viewform?usp=header"
+                class="hover:text-smartix-blue" target="_blank">Join Now</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="font-bold text-smartix-navy text-lg mb-6">Contact</h4>
+          <ul class="space-y-3 text-gray-500">
+            <li>contact@smartx.mtu</li>
+            <li>Technical University</li>
+            <li>Mechatronics Dept.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div
+        class="border-t border-gray-100 pt-8 flex flex-col md:flex-row justify-between items-center text-gray-400 text-sm">
+        <p>&copy; 2024 Smartix Club.</p>
+        <p class="mt-2 md:mt-0 flex items-center">
+          Made with <span class="text-smartix-blue mx-1">♥</span> by Smartix Team
+        </p>
+      </div>
+    </div>
+  </footer>
+
+  <script src="script.js"></script>
+  <script type="module" src="/index.tsx"></script>
+</body>
+
+</html>
